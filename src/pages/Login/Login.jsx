@@ -4,9 +4,9 @@ import '../Login/Login.css';
 function Login() {
   return(
     <div className="maindiv">
-        <img src="../GoogleLogo.png" alt="Google"></img>
+        <img src="../FundooLogo.png" alt="Fundoo"></img>
         <h2 className="signin">Sign in</h2>
-        <h4 className="use">Use your Google Account</h4>  
+        <h4 className="use">Use your Fundoo Account</h4>  
         <div className="inputbox">
         <input type="email" name="email" placeholder='Email' required/>  
         </div>
