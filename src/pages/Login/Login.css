@@ -33,7 +33,7 @@ body {
   font-weight: lighter;
 }
 
-.maindiv .inputbox input{
+/* .maindiv .inputbox input{
   width: 25vw;
   padding: 15px 30px;
   font-size: 1rem;
@@ -43,7 +43,7 @@ body {
   background: transparent;
   border-radius: 4px;
   margin: 20px auto 20px auto;
-}
+} */
 
 .forgot {
   width: 94%;
@@ -59,32 +59,10 @@ body {
   font-weight: lighter;
 }
 .buttonContainder {
-  width: 94%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
-}
-.buttonContainder a{
-  text-decoration: none;
-  font-weight: bolder;
-  border-radius: 5px;
-  padding: 7px 15px 9px 15px;
-}
-
-.createbutton:hover{
-  color: #366fca;
-  background-color: #f6f9fe;
-}
-
-.nextbutton{
-  background-color: #4285f4;
-  color: white;
-  transition: 0.1s ease;
-}
-
-.nextbutton:hover{
-  background-color: #1b66c9;
-  box-sizing: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .forgot, .guest span , .createbutton{
