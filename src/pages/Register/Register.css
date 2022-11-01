@@ -9,7 +9,7 @@ body{
 .container{
   height: 90vh;
   width: 55vw;
-	border: 1px solid #dadce0;
+  border: 1px solid #dadce0;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
@@ -25,41 +25,44 @@ body{
 }
 .right img{
 	width: 70%;
-	margin: 9rem 0.1rem;
+	margin: 9rem 2.7rem;
 }
 .left img{
 	width: 30%;
 }
 .right p{
 	text-align: center;
-	margin: -6rem 1rem;
+	margin: -9rem 0.5rem;
 	width: 70%;
 } 
 h3{
 	color: #2d3436;
 	margin: 2rem 0;
 }
-form input[type="text"]{
-	width: 43%;
+/* form input[type="text"]{
+	width: 42%;
 	padding: 0.5rem 0.7rem;
 	outline: none;
 	border: 1px solid lightgray;
 	margin-bottom: 2.3rem;
 	border-radius: 5px;
-}
+	margin-left: 1.8%;
+} */
 
-form input[type="email"]{
-	width: 93%;
+/* form input[type="email"]{
+	width: 92%;
 	padding: 0.5rem 0.7rem;
 	outline: none;
 	border: 1px solid lightgray;
 	border-radius: 5px;
-}
+	margin-left: 2%;
+} */
 
 form span{
 	color: gray;
 	width: 100%;
 	font-size: 0.8rem;
+	margin-left: 3%;
 }
 
 form a{
@@ -67,15 +70,17 @@ form a{
 	font-weight: 500;
 	font-size: 1rem;
 	color: #3498db;
+	margin-left: 2%;
 }
-form input[type="password"]{
-	width: 43%;
+/* form input[type="password"]{
+	width: 42%;
 	padding: 0.5rem 0.7rem;
 	outline: none;
 	border: 1px solid lightgray;
 	margin-top: 3rem;
 	border-radius: 5px;
-}
+	margin-left: 1.8%;
+} */
 .bottom-link{
 	width: 100%;
 	display: flex;
@@ -84,7 +89,7 @@ form input[type="password"]{
 	margin-top: 2.5rem;
 }
 
-form input[type="submit"]{
+/* form input[type="submit"]{
 	background: #3498db;
 	color: white;
 	padding: 0.5rem 1.3rem;
@@ -92,12 +97,5 @@ form input[type="submit"]{
 	border: none;
 	outline: none;
 	cursor: pointer;
-}
+} */
 
-form input{
-	transition: 0.3s;
-}
-
-form input:focus{
-	border: 2px solid #3498db;
-}
