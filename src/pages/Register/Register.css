@@ -24,16 +24,18 @@ body{
 	flex-basis: 40%;
 }
 .right img{
-	width: 70%;
-	margin: 9rem 2.7rem;
+	width: 50%;
+	margin: 11rem 2.7rem;
 }
 .left img{
 	width: 30%;
 }
 .right p{
 	text-align: center;
-	margin: -9rem 0.5rem;
+	margin: -11rem 0.4rem;
+	color: black;
 	width: 70%;
+	font-size: medium;
 } 
 h3{
 	color: #2d3436;
@@ -58,14 +60,14 @@ h3{
 	margin-left: 2%;
 } */
 
-form span{
+p{
 	color: gray;
 	width: 100%;
 	font-size: 0.8rem;
 	margin-left: 3%;
 }
 
-form a{
+a{
 	text-decoration: none;
 	font-weight: 500;
 	font-size: 1rem;
