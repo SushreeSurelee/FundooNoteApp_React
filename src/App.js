@@ -4,6 +4,7 @@ import Register from './pages/Register/Register';
 import Header from './components/header/Header';
 import Takenote1 from './components/takeNote1/takeNote1';
 import Takenote2 from './components/takeNote2/takeNote2';
+import Takenote3 from './components/takeNote3/takeNote3';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       {/* <Register /> */}
       <Header/>
       <Takenote1/>
-      <Takenote2/>
+      {/* <Takenote2/> */}
+      <Takenote3/>
     </div>
   );
 }
