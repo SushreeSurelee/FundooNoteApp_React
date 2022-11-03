@@ -1,12 +1,10 @@
 /* .App{
+    height: 97vh;
     display: flex;
-    flex-direction:column;
-    text-align: center;
-    width: 30vw;
-    height: 80vh;
-    border: 1px solid rgb(180, 176, 176);
-}
-img {
+    justify-content: center;
+    align-items: center;
+} */
+/* img {
     max-width: 100px;
     max-height: 50px;
 } */

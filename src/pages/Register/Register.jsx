@@ -96,7 +96,8 @@ function Register() {
 	}
 
   return(
-  <div className="container">
+	<div className="signuppage">
+<div className="container">
 	<div className="left">
 		<img src="../FundooLogo.png" alt="Fundoo"></img>
         <h3>Create your Fundoo Account</h3>
@@ -156,6 +157,8 @@ function Register() {
 		<p>One account. All of Fundoo working for you.</p>
     </div>
   </div>
+	</div>
+  
 )
 }
 

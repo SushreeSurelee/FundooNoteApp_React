@@ -8,20 +8,23 @@ import DnsOutlinedIcon from '@mui/icons-material/DnsOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AppsIcon from '@mui/icons-material/Apps';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import TextField from '@mui/material/TextField';
 import '../header/header.css'
 
 function Header() {
     return(
-        <div>
+        <div className="HeaderBar">
             <IconButton type="button" sx={{ marginLeft:1.7}}>
                 <MenuIcon/>
             </IconButton>
 
             <img src='../keep_logo.png'></img>
             <h1>Keep</h1>
-
-            <InputBase sx={{width: 723,marginLeft:11,height:50}} 
-            placeholder="Search"/>
+            <TextField type={'text'} 
+            sx={{ width:720,marginLeft:11.2,marginTop:1.2,marginBottom:1.2}} 
+            placeholder="Search"/>  
+            {/* <InputBase sx={{width: 723,marginLeft:11,height:50}} 
+            placeholder="Search"/> */}
 
             <IconButton type="button" sx={{ marginLeft:-6.5}}>
                 <ClearIcon />

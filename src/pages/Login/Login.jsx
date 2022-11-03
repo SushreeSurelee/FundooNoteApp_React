@@ -66,7 +66,8 @@ function Login() {
     }
 
   return(
-  <div className="maindiv">
+<div className='loginpage'>
+<div className="maindiv">
     <img src="../FundooLogo.png" alt="Fundoo"></img>
     <h2 className="signin">Sign in</h2>
     <h4 className="use">Use your Fundoo Account</h4>
@@ -91,7 +92,9 @@ function Login() {
         <Button variant="text">Create account</Button>
         <Button variant="contained" onClick={submit}>NEXT</Button>
 	</div>
+    </div>
 </div>
+    
   )
 }
 
