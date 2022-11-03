@@ -3,7 +3,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Header from './components/header/Header';
 import Takenote1 from './components/takeNote1/takeNote1';
-
+import Takenote2 from './components/takeNote2/takeNote2';
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       {/* <Register /> */}
       <Header/>
       <Takenote1/>
+      <Takenote2/>
     </div>
   );
 }
