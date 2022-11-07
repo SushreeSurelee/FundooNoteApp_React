@@ -1,12 +1,13 @@
 .takenote2 form{
  width: 582px;
- margin: 32px auto 50px auto;
+ margin: 32px auto 57px auto;
  background: #fff;
  padding: 7px;
  border-radius: 7px;
  box-shadow: 0 1px 7px rgb(128, 128, 128);
- margin-top: -7.2%;
- margin-left: 30.8%;
+ position: relative;
+ top:3px;
+ left: 46px;
 }
 .takenote2 form input{
  width: 98%;

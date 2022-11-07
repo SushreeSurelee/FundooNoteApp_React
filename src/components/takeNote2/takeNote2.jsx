@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import '../takeNote2/takeNote2.css'
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import IconButton from '@mui/material/IconButton';
@@ -10,17 +10,46 @@ import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import UndoOutlinedIcon from '@mui/icons-material/UndoOutlined';
 import RedoOutlinedIcon from '@mui/icons-material/RedoOutlined';
 import { Button } from "@mui/material";
+import { addNoteApi } from "../../services/dataService";
 
-function Takenote2() {
+function Takenote2(props) {
+
+    const [inputValues,setInputValues] = useState({title:'', description:''})
+
+
+    const titleValue = (e) => {
+        setInputValues(prevState => ({
+            ...prevState ,
+            title:e.target.value
+        }))
+    }
+
+    const descValue = (e) => {
+        setInputValues(prevState => ({
+            ...prevState ,
+            description:e.target.value
+        }))
+    }
+    
+    console.log(inputValues, "checking input")
+
+    const close = () => {
+        props.openNote1()
+        addNoteApi(inputValues).then((response) =>{
+            console.log(response)
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
     return(
         <div className="takenote2">
             <form>
-            <input type="text" placeholder="Title" name="title" />
+            <input type="text" placeholder="Title" name="title" onChange={titleValue} />
             <div>
-                <input className="note" type={'text'} name="content" placeholder="Take a note..." />
+                <input className="note" type={'text'} name="content" placeholder="Take a note..." onChange={descValue}/>
             </div>
             </form>
-            <IconButton type="button" sx={{ marginTop:-21 ,marginLeft:53}}>
+            <IconButton type="button" sx={{ marginTop:-21.3 ,marginLeft:53}}>
                 <AddAlertOutlinedIcon />
             </IconButton>  
             <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
@@ -44,7 +73,9 @@ function Takenote2() {
             <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
                 <RedoOutlinedIcon />
             </IconButton>
-            <IconButton type="button" sx={{ marginLeft: 16,marginTop:-21,fontSize:16,}}>Close</IconButton>
+            <IconButton type="button" sx={{ marginLeft: 16,marginTop:-21,fontSize:16,}} 
+            onClick={close}
+            >Close</IconButton>
         </div>
     )
 }

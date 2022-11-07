@@ -58,6 +58,7 @@ function Login() {
         {
             loginApi(loginobj).then((response) => {
                 console.log(response)
+                localStorage.setItem("token",response.data.id)
             }).catch((error) => {
                 console.log(error)
             })
