@@ -3,20 +3,20 @@ import '../takeNote2/takeNote2.css'
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import IconButton from '@mui/material/IconButton';
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
-import PaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import UndoOutlinedIcon from '@mui/icons-material/UndoOutlined';
 import RedoOutlinedIcon from '@mui/icons-material/RedoOutlined';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
-import { Button } from "@mui/material";
 import { addNoteApi } from "../../services/dataService";
 import ColorPopup from "../colorPoppup/colorPopup";
 
 function Takenote2(props) {
 
-    const [inputValues,setInputValues] = useState({title:'', description:'',color:''})
+    const [inputValues,setInputValues] = useState({title:'', description:'',color:'',isArchived:false})
+
+
 
     const colorNote= (e) => {
         setInputValues(prevState => ({
@@ -36,6 +36,12 @@ function Takenote2(props) {
             ...prevState ,
             description:e.target.value
         }))
+    }
+    const archive =() => {
+        setInputValues(prevState => ({
+            ...prevState, isArchived:true
+        }))
+        console.log("Check Archive")
     }
     
     console.log(inputValues, "checking input")
@@ -70,7 +76,7 @@ function Takenote2(props) {
                 <ImageOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
             <IconButton>
-                <ArchiveOutlinedIcon sx={{height:'19px'}}/>
+                <ArchiveOutlinedIcon sx={{height:'19px'}} onClick={archive}/>
             </IconButton>
             <IconButton>
                 <MoreVertOutlinedIcon sx={{height:'19px'}}/>

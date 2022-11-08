@@ -1,6 +1,5 @@
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import { InputBase } from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import RefreshIcon from '@mui/icons-material/Refresh';
@@ -18,10 +17,10 @@ function Header() {
                 <MenuIcon/>
             </IconButton>
 
-            <img src='../keep_logo.png'></img>
-            <h1>Keep</h1>
+            <img src='../keep_logo.png' alt='fundoo'></img>
+            <h1>Fundoo</h1>
             <TextField type={'text'} 
-            sx={{ width:720,marginLeft:11.2,marginTop:1.2,marginBottom:1.2}} 
+            sx={{ width:720,marginLeft:10,marginTop:1.2,marginBottom:1.2}} 
             placeholder="Search"/>  
             {/* <InputBase sx={{width: 723,marginLeft:11,height:50}} 
             placeholder="Search"/> */}

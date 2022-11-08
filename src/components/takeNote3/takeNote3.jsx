@@ -3,14 +3,25 @@ import '../takeNote3/takeNote3.css'
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import IconButton from '@mui/material/IconButton';
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
-import PaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined';
-import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import ColorPopup from "../colorPoppup/colorPopup";
+import { addArchiveApi } from "../../services/dataService";
 
 
 function Takenote3(props) {
+
+    const updateArchive = (id) => {
+        let archiveObj = {noteIdList:[id],isArchived:true} 
+        console.log(archiveObj)
+
+        addArchiveApi(archiveObj).then((response) =>{
+            console.log(response)
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
 
     return(
         <div className="takenote3" style={{backgroundColor:props.note.color}}>
@@ -27,10 +38,10 @@ function Takenote3(props) {
                  <ColorPopup action="update" id={props.note.id}/>
             </IconButton>
             <IconButton>
-                <ImageOutlinedIcon sx={{height:'18px'}} />
+                <DeleteOutlinedIcon sx={{height:'18px'}} />
             </IconButton>
             <IconButton>
-                <ArchiveOutlinedIcon sx={{height:'18px'}}/>
+                <ArchiveOutlinedIcon sx={{height:'18px'}} onClick={() => updateArchive(props.note.id)}/>
             </IconButton>
             <IconButton>
                 <MoreVertOutlinedIcon sx={{height:'18px'}}/>

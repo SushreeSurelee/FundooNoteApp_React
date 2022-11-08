@@ -35,7 +35,7 @@ function Dashbaord () {
                 }
             <div className="note3container">
                 {
-                    listNote3.map((note) => (<Takenote3 note={note}/>))
+                    listNote3.map((note) => (!note.isArchived && <Takenote3 note={note}/>))
                 }
             </div>
         </div>

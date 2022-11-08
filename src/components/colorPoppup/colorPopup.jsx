@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Popper from '@mui/material/Popper';
-import IconButton from '@mui/material/IconButton';
 import PaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined';
 import { addColorApi } from '../../services/dataService';
 
