@@ -56,33 +56,32 @@ function Takenote2(props) {
                 <PushPinOutlinedIcon />
             </IconButton>
 
-            <div style={{display:'flex'}}>
-            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+            <div style={{display:'flex', marginTop:'-50px',marginLeft:'6px'}}>
+            <IconButton>
                 <AddAlertOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>  
-            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+            <IconButton>
                 <PersonAddAltOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>  
-            {/* <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
-                <PaletteOutlinedIcon sx={{height:'19px'}}/>
-            </IconButton> */}
-            <ColorPopup colorNote ={colorNote}/>
-            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+            <IconButton sx={{marginTop:'1px'}}>
+                <ColorPopup colorNote ={colorNote} action= "create" />
+            </IconButton>
+            <IconButton>
                 <ImageOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+            <IconButton>
                 <ArchiveOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+            <IconButton>
                 <MoreVertOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+            <IconButton>
                 <UndoOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+            <IconButton>
                 <RedoOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'130px',fontSize:16,}} 
+            <IconButton type="button" sx={{marginLeft:'180px',fontSize:16,}} 
             onClick={close}
             >Close</IconButton>
             </div>

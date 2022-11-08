@@ -7,7 +7,7 @@ import PaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
-import { sizeHeight } from "@mui/system";
+import ColorPopup from "../colorPoppup/colorPopup";
 
 
 function Takenote3(props) {
@@ -16,25 +16,27 @@ function Takenote3(props) {
         <div className="takenote3" style={{backgroundColor:props.note.color}}>
             <h1>{props.note.title}</h1>
             <p>{props.note.description}</p>
-
-            <IconButton type="button" sx={{position:'absolute'}}>
+            <div style={{display:'flex', marginLeft:'-9px',marginTop:'-8px'}}>
+            <IconButton>
                 <AddAlertOutlinedIcon sx={{height:'17px'}} />
             </IconButton>
-            <IconButton type="button" sx={{position:'absolute',marginLeft:'35px'}}>
+            <IconButton>
                 <PersonAddAltOutlinedIcon sx={{height:'18px'}} />
             </IconButton>  
-            <IconButton type="button" sx={{position:'absolute',marginLeft:'70px'}}>
-                <PaletteOutlinedIcon sx={{height:'18px'}} />
+            <IconButton>
+                 <ColorPopup action="update" id={props.note.id}/>
             </IconButton>
-            <IconButton type="button" sx={{position:'absolute',marginLeft:'105px'}}>
+            <IconButton>
                 <ImageOutlinedIcon sx={{height:'18px'}} />
             </IconButton>
-            <IconButton type="button" sx={{position:'absolute',marginLeft:'140px'}}>
+            <IconButton>
                 <ArchiveOutlinedIcon sx={{height:'18px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{position:'absolute',marginLeft:'175px'}}>
+            <IconButton>
                 <MoreVertOutlinedIcon sx={{height:'18px'}}/>
             </IconButton>
+            </div>
+                 
         </div>
     )
 }
