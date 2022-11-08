@@ -9,13 +9,20 @@ import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import UndoOutlinedIcon from '@mui/icons-material/UndoOutlined';
 import RedoOutlinedIcon from '@mui/icons-material/RedoOutlined';
+import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import { Button } from "@mui/material";
 import { addNoteApi } from "../../services/dataService";
+import ColorPopup from "../colorPoppup/colorPopup";
 
 function Takenote2(props) {
 
-    const [inputValues,setInputValues] = useState({title:'', description:''})
+    const [inputValues,setInputValues] = useState({title:'', description:'',color:''})
 
+    const colorNote= (e) => {
+        setInputValues(prevState => ({
+            ...prevState,color:e
+        }))
+    }
 
     const titleValue = (e) => {
         setInputValues(prevState => ({
@@ -42,40 +49,44 @@ function Takenote2(props) {
         })
     }
     return(
-        <div className="takenote2">
-            <form>
+        <div className="takenote2" style={{backgroundColor:inputValues.color}}>
             <input type="text" placeholder="Title" name="title" onChange={titleValue} />
-            <div>
-                <input className="note" type={'text'} name="content" placeholder="Take a note..." onChange={descValue}/>
-            </div>
-            </form>
-            <IconButton type="button" sx={{ marginTop:-21.3 ,marginLeft:53}}>
-                <AddAlertOutlinedIcon />
+            <input className="note" type={'text'} name="content" placeholder="Take a note..." onChange={descValue}/>
+            <IconButton type="button" sx={{marginTop:'-230px',marginLeft:'535px' }}>
+                <PushPinOutlinedIcon />
+            </IconButton>
+
+            <div style={{display:'flex'}}>
+            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+                <AddAlertOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>  
-            <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <PersonAddAltOutlinedIcon />
+            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+                <PersonAddAltOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>  
-            <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <PaletteOutlinedIcon />
+            {/* <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+                <PaletteOutlinedIcon sx={{height:'19px'}}/>
+            </IconButton> */}
+            <ColorPopup colorNote ={colorNote}/>
+            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+                <ImageOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <ImageOutlinedIcon />
+            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+                <ArchiveOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <ArchiveOutlinedIcon />
+            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+                <MoreVertOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <MoreVertOutlinedIcon />
+            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+                <UndoOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <UndoOutlinedIcon />
+            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+                <RedoOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <RedoOutlinedIcon />
-            </IconButton>
-            <IconButton type="button" sx={{ marginLeft: 16,marginTop:-21,fontSize:16,}} 
+            <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'130px',fontSize:16,}} 
             onClick={close}
             >Close</IconButton>
+            </div>
+            
         </div>
     )
 }

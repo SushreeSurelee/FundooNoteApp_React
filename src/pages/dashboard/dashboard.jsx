@@ -33,7 +33,7 @@ function Dashbaord () {
             <div>{
                 togel? <Takenote2 openNote1={openNote1} /> : <Takenote1 openNote2={openNote2} /> 
                 }
-            <div style={{height:'70vh',width:'75vw',display:'flex',flexDirection:'row',marginLeft:'200px',marginTop:'-19px'}}>
+            <div style={{height:'70vh',width:'75vw',display:'flex',flexDirection:'row',marginLeft:'200px',marginTop:'-19px', flexwrap:'wrap'}}>
                 {
                     listNote3.map((note) => (<Takenote3 note={note}/>))
                 }

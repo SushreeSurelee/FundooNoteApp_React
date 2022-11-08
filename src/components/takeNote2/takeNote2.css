@@ -1,5 +1,6 @@
-.takenote2 form{
+.takenote2{
  width: 582px;
+ height: 120px;
  margin: 32px auto 57px auto;
  background: #fff;
  padding: 7px;
@@ -9,7 +10,7 @@
  top:3px;
  left: 46px;
 }
-.takenote2 form input{
+.takenote2 input{
  width: 98%;
  border: none;
  margin: 4px 10px;

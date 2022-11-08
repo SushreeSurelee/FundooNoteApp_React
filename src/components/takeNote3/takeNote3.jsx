@@ -13,9 +13,10 @@ import { sizeHeight } from "@mui/system";
 function Takenote3(props) {
 
     return(
-        <div className="takenote3">
+        <div className="takenote3" style={{backgroundColor:props.note.color}}>
             <h1>{props.note.title}</h1>
             <p>{props.note.description}</p>
+
             <IconButton type="button" sx={{position:'absolute'}}>
                 <AddAlertOutlinedIcon sx={{height:'17px'}} />
             </IconButton>
