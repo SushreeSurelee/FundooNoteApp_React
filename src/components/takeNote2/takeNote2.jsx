@@ -43,8 +43,6 @@ function Takenote2(props) {
         }))
         console.log("Check Archive")
     }
-    
-    console.log(inputValues, "checking input")
 
     const close = () => {
         props.openNote1()

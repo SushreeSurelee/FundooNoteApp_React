@@ -10,11 +10,14 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import TextField from '@mui/material/TextField';
 import '../header/header.css'
 
-function Header() {
+function Header(props) {
+    const menubutton = () => {
+        props.listenToHeader()
+    }
     return(
         <div className="HeaderBar">
             <IconButton type="button" sx={{ marginLeft:1.7}}>
-                <MenuIcon/>
+                <MenuIcon onClick={menubutton}/>
             </IconButton>
 
             <img src='../keep_logo.png' alt='fundoo'></img>
@@ -22,8 +25,6 @@ function Header() {
             <TextField type={'text'} 
             sx={{ width:720,marginLeft:10,marginTop:1.2,marginBottom:1.2}} 
             placeholder="Search"/>  
-            {/* <InputBase sx={{width: 723,marginLeft:11,height:50}} 
-            placeholder="Search"/> */}
 
             <IconButton type="button" sx={{ marginLeft:-6.5}}>
                 <ClearIcon />
