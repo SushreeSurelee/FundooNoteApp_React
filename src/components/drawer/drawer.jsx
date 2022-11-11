@@ -1,24 +1,20 @@
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import { styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import {connect} from 'react-redux'
+
 
 const drawerWidth = 240;
 
@@ -62,20 +58,12 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer(props) {
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
+ function MiniDrawer(props) {
   const selectOption = (options) => {
     props.listenToDrawer(options)
+    props.dispatch({
+      type:`${options}`
+    })
   }
 
   return (
@@ -94,7 +82,7 @@ export default function MiniDrawer(props) {
             <ListItem disablePadding sx={{ display: 'block' }} onClick={() => selectOption('Reminders') }>
               <ListItemButton>
                 <ListItemIcon>
-                <LightbulbOutlinedIcon/>
+                <NotificationsNoneOutlinedIcon/>
                 </ListItemIcon>
                 <ListItemText primary='Reminders' />
               </ListItemButton>
@@ -102,7 +90,7 @@ export default function MiniDrawer(props) {
             <ListItem disablePadding sx={{ display: 'block' }} onClick={() => selectOption('Edit') }>
               <ListItemButton>
                 <ListItemIcon>
-                <LightbulbOutlinedIcon/>
+                <EditOutlinedIcon/>
                 </ListItemIcon>
                 <ListItemText primary='Edit Labels' />
               </ListItemButton>
@@ -110,7 +98,7 @@ export default function MiniDrawer(props) {
             <ListItem disablePadding sx={{ display: 'block' }} onClick={() => selectOption('Archive') }>
               <ListItemButton>
                 <ListItemIcon>
-                <LightbulbOutlinedIcon/>
+                <ArchiveOutlinedIcon/>
                 </ListItemIcon>
                 <ListItemText primary='Archive' />
               </ListItemButton>
@@ -118,7 +106,7 @@ export default function MiniDrawer(props) {
             <ListItem disablePadding sx={{ display: 'block' }} onClick={() => selectOption('Trash') }>
               <ListItemButton>
                 <ListItemIcon>
-                <LightbulbOutlinedIcon/>
+                <DeleteOutlinedIcon/>
                 </ListItemIcon>
                 <ListItemText primary='Trash' />
               </ListItemButton>
@@ -128,3 +116,4 @@ export default function MiniDrawer(props) {
     </Box>
   );
 }
+export default connect()(MiniDrawer)

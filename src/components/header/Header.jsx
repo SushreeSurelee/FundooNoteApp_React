@@ -9,6 +9,7 @@ import AppsIcon from '@mui/icons-material/Apps';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import TextField from '@mui/material/TextField';
 import '../header/header.css'
+import {connect} from 'react-redux'
 
 function Header(props) {
     const menubutton = () => {
@@ -21,9 +22,10 @@ function Header(props) {
             </IconButton>
 
             <img src='../keep_logo.png' alt='fundoo'></img>
-            <h1>Fundoo</h1>
+            <h1>{props.label}</h1>
+
             <TextField type={'text'} 
-            sx={{ width:720,marginLeft:10,marginTop:1.2,marginBottom:1.2}} 
+            sx={{ width:720,marginLeft:10}} 
             placeholder="Search"/>  
 
             <IconButton type="button" sx={{ marginLeft:-6.5}}>
@@ -52,5 +54,10 @@ function Header(props) {
         </div>
     )
 }
+const mapStateToProps = (state) => {
+    return {
+        label:state.drawerReducer.label
+    }
+}
 
-export default Header
+export default connect(mapStateToProps)(Header)

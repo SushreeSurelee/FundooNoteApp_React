@@ -10,7 +10,9 @@ import UndoOutlinedIcon from '@mui/icons-material/UndoOutlined';
 import RedoOutlinedIcon from '@mui/icons-material/RedoOutlined';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import { addNoteApi } from "../../services/dataService";
+
 import ColorPopup from "../colorPoppup/colorPopup";
+import { InputBase } from "@mui/material";
 
 function Takenote2(props) {
 
@@ -54,13 +56,17 @@ function Takenote2(props) {
     }
     return(
         <div className="takenote2" style={{backgroundColor:inputValues.color}}>
-            <input type="text" placeholder="Title" name="title" onChange={titleValue} />
-            <input className="note" type={'text'} name="content" placeholder="Take a note..." onChange={descValue}/>
-            <IconButton type="button" sx={{marginTop:'-230px',marginLeft:'535px' }}>
+            <div>
+            <InputBase type="text" placeholder="Title" name="title" onChange={titleValue}/>
+            </div>
+            <InputBase style={{marginTop:'10px'}}
+            type={'text'} name="content" placeholder="Take a note..." onChange={descValue}/>
+
+            <IconButton type="button" sx={{marginTop:'-150px',marginLeft:'505px' }}>
                 <PushPinOutlinedIcon />
             </IconButton>
 
-            <div style={{display:'flex', marginTop:'-50px',marginLeft:'6px'}}>
+            <div style={{display:'flex', marginTop:'-30px',marginLeft:'3px'}}>
             <IconButton>
                 <AddAlertOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>  
@@ -85,7 +91,7 @@ function Takenote2(props) {
             <IconButton>
                 <RedoOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{marginLeft:'180px',fontSize:16,}} 
+            <IconButton type="button" sx={{marginLeft:'165px',fontSize:16,}} 
             onClick={close}
             >Close</IconButton>
             </div>

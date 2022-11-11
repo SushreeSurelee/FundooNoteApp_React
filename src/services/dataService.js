@@ -28,3 +28,8 @@ export const trashNoteApi =(inputValue3) =>{
     let response = axios.post("http://fundoonotes.incubation.bridgelabz.com/api/notes/trashNotes",inputValue3,headerConfig)
     return response;
 }
+
+export const updateNoteApi = (inputvalue4) => {
+    let response = axios.post("http://fundoonotes.incubation.bridgelabz.com/api/notes/updateNotes",inputvalue4,headerConfig)
+    return response;
+}

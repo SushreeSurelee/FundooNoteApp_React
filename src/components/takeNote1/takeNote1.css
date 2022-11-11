@@ -1,12 +1,12 @@
 .takenote1 input{
-    height: 4.8vh;
+    height: 7vh;
     width: 41.5vw;
     display: flex;
     flex-direction: row;
     align-items: center;
     box-shadow: 0 0 4px 0 gray;
-    margin-top: 2.5%;
-    margin-left: 30.8%;
+    margin-top: -17px;
+    margin-left: 500px;
     border-radius: 0.5rem;
     border: none;
     font-size: medium;

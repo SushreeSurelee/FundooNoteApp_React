@@ -1,5 +1,4 @@
 import React from "react";
-import { TextField } from "@mui/material";
 import '../takeNote1/takeNote1.css'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import IconButton from '@mui/material/IconButton';
@@ -15,13 +14,14 @@ function Takenote1(props) {
 return(
     <div className="takenote1" onClick={openNoteTwo}>
       <input type="text" placeholder="Take a note..." />
-      <IconButton type="button" sx={{ marginTop:-8 ,marginLeft:106.5}}>
+
+      <IconButton type="button" sx={{ marginTop:-8.5 ,marginLeft:112}}>
                 <CheckBoxOutlinedIcon />
       </IconButton>
-      <IconButton type="button" sx={{ marginTop:-12.5 ,marginLeft:113}}>
+      <IconButton type="button" sx={{ marginTop:-14.2 ,marginLeft:118}}>
                 <BrushOutlinedIcon />
       </IconButton>
-      <IconButton type="button" sx={{ marginTop:-17 ,marginLeft:120}}>
+      <IconButton type="button" sx={{ marginTop:-20.5 ,marginLeft:124}}>
                 <InsertPhotoOutlinedIcon />
       </IconButton>
     </div>
