@@ -1,5 +1,5 @@
 import React from "react";
-import '../takeNote3/takeNote3.css'
+// import '../takeNote3/takeNote3.css'
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import IconButton from '@mui/material/IconButton';
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
@@ -10,21 +10,32 @@ import ColorPopup from "../colorPoppup/colorPopup";
 import { addArchiveApi, trashNoteApi, updateNoteApi } from "../../services/dataService";
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { InputBase } from "@mui/material";
+import { Card, InputBase } from "@mui/material";
 import { useState } from "react";
+import { makeStyles} from "@mui/styles";
 
 const style = {
   width:'557px',
   height:'150px',
   margin:'150px auto 57px auto',
   padding:'7px',
-  borderRadius:'7px',
-  boxShadow:'0 1px 7px rgb(128, 128, 128)',
   position:'relative',
   backgroundColor:'#fff'
 };
+const useStyle = makeStyles({
+    takenote3:{
+        background: '#fff',
+        width: '235px',
+        height: '23vh',
+        borderRadius: '7px',   
+        padding: '10px',
+        marginLeft: '23px',
+        marginTop:'25px',
+    }
+})
 
 function Takenote3(props) {
+    const classes = useStyle()
 
     const updateArchive = (id) => {
         let archiveObj = {noteIdList:[id],isArchived:true} 
@@ -79,11 +90,11 @@ function Takenote3(props) {
     }
 
     return(
-        <div className="takenote3" style={{backgroundColor:props.note.color}}>
-            <h1 onClick={()=>handleOpen(props.note)}>{props.note.title}</h1>
+        <Card className={classes.takenote3} style={{backgroundColor:props.note.color}}>
+            <h1 onClick={()=>handleOpen(props.note)} style={{fontSize:'17px'}}>{props.note.title}</h1>
             <p onClick={()=>handleOpen(props.note)}>{props.note.description}</p>
 
-            <div style={{display:'flex', marginLeft:'-10px',marginTop:'-14px'}}>
+            <div style={{display:'flex', marginLeft:'-10px',marginTop:'1px'}}>
             <IconButton>
                 <AddAlertOutlinedIcon sx={{height:'17px'}} />
             </IconButton>
@@ -137,7 +148,7 @@ function Takenote3(props) {
                 </div>
                 </Box>
             </Modal>   
-        </div>
+        </Card>
     )
 }
 

@@ -4,11 +4,13 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { loginApi } from '../../services/userService';
+import { useNavigate } from 'react-router-dom';
 
 const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$/;
 
 function Login() {
+    const navigate = useNavigate()
     const [loginobj,setloginobj] = useState({email:'', password:''})
     const [regexobj,setregexobj] = useState({emailBorder:false,emailHelper:'',passwordBorder:false,passwordHelper:''})
 
@@ -19,6 +21,9 @@ function Login() {
     const takePass = (e) => { 
         setloginobj(prevstate => ({...prevstate, password:e.target.value}));
         console.log(loginobj);
+    }
+    const createAccount = () => {
+        navigate('/signup')
     }
     const submit = () => {
         let emailTest = emailRegex.test(loginobj.email)
@@ -59,6 +64,7 @@ function Login() {
             loginApi(loginobj).then((response) => {
                 console.log(response)
                 localStorage.setItem("token",response.data.id)
+                navigate('/dashboard')
             }).catch((error) => {
                 console.log(error)
             })
@@ -90,7 +96,7 @@ function Login() {
     <h5 className="forgot">Forgot Email or password?</h5>
     <h4 className="guest">Not your computer? Use Guest mode to sign in privately.<span> Learn more</span></h4>
     <div className="buttonContainder">
-        <Button variant="text">Create account</Button>
+        <Button variant="text" onClick={createAccount}>Create account</Button>
         <Button variant="contained" onClick={submit}>NEXT</Button>
 	</div>
     </div>

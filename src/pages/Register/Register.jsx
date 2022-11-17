@@ -4,12 +4,14 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from "react";
 import { signupApi } from "../../services/userService";
+import { useNavigate } from 'react-router-dom';
 
 const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$/;
 const fnameRegex = /^[A-Z]{1}[a-z]{2,}$/;
 
 function Register() {
+	const navigate = useNavigate()
 	const[signupobj,setsignupobj] = useState({firstName:'', lastName:'',service: "advance", email:'', password:''})
 	const [regexobj,setregexobj] = useState({fnameBorder:false,fnameHelper:'',lnameBorder:false,lnameHelper:'',emailBorder:false,emailHelper:'',passwordBorder:false,passwordHelper:''})
 
@@ -24,6 +26,10 @@ function Register() {
 	}
 	const takePassword = (e) => {
 		setsignupobj(prevstate => ({...prevstate, password:e.target.value}));
+	}
+
+	const signin = () => {
+		navigate('/')
 	}
 
 	const submit = () => {
@@ -87,6 +93,7 @@ function Register() {
 		{
 			signupApi(signupobj).then((response) => {
 				console.log(response)
+				navigate('/dashboard')
 			}).catch((error) => {
 				console.log(error)
 			})
@@ -147,7 +154,7 @@ function Register() {
 		/>
 		<p>Use 8 or more characters with a mix of letters, numbers & symbols</p>
 		<div className="bottom-link">
-			<Button variant="text">Sign In instead</Button>
+			<Button variant="text" onClick={signin}>Sign In instead</Button>
             <Button variant="contained" onClick={submit}>NEXT</Button>
 		</div>
 		</div>

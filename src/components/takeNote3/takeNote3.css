@@ -1,17 +1,11 @@
 .takenote3{
     background: #fff;
     width: 235px;
-    height: 20vh;
+    height: 23vh;
     border-radius: 7px;
     box-shadow: 0 0 3px 0 rgb(175, 175, 175);
     padding: 10px;
-    float: left;
     margin-left: 20px;
-}
-
-.takenote3 h1{
-    font-size: 1rem;
-    margin-bottom: 6px;
 }
 
 .takenote3 p{
