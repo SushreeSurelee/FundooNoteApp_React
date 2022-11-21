@@ -1,5 +1,4 @@
 import React from "react";
-// import '../takeNote1/takeNote1.css'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import IconButton from '@mui/material/IconButton';
 import BrushOutlinedIcon from '@mui/icons-material/BrushOutlined';

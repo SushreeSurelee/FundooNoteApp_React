@@ -5,9 +5,24 @@ import Takenote1 from "../../components/takeNote1/takeNote1";
 import Takenote2 from "../../components/takeNote2/takeNote2";
 import Takenote3 from "../../components/takeNote3/takeNote3";
 import { getNoteListApi } from "../../services/dataService";
-import '../dashboard/dashboard.css'
+import { makeStyles} from "@mui/styles";
+import { Grid } from "@mui/material";
+
+const useStyle = makeStyles({
+    note3container:{
+    height: 'auto',
+    width: '80vw',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginLeft: '200px',
+    marginTop: '-19px',
+    }
+})
 
 function Dashbaord () {
+    
+    const classes = useStyle()
     const[togel,setTogel] = useState(false)
     const[listNote3,setListNote3] = useState([])
     const[drawerTogel,setdrawerTogel] = useState(false)
@@ -63,18 +78,22 @@ function Dashbaord () {
         getNote()
     },[noteChoice])
 
+    const listenToTakeNoteTwo = () => {
+        getNote()
+    }
+
     return(
         <div>
             <Header listenToHeader={listenToHeader}/>
             <MiniDrawer drawerTogel={drawerTogel} listenToDrawer={listenToDrawer}/>
             <div>{
-                togel? <Takenote2 openNote1={openNote1} /> : <Takenote1 openNote2={openNote2} /> 
+                togel? <Takenote2 openNote1={openNote1} listenToTakeNoteTwo={listenToTakeNoteTwo} /> : <Takenote1 openNote2={openNote2} /> 
                 }
-            <div className="note3container">
+            <Grid className={classes.note3container}>
                 {
-                    listNote3.map((note) => (<Takenote3 note={note}/>))
+                    listNote3.map((note) => (<Takenote3 note={note} getNote={getNote}/>))
                 }
-            </div>
+            </Grid>
         </div>
     </div>
     )

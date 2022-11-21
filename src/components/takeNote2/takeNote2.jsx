@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import '../takeNote2/takeNote2.css'
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import IconButton from '@mui/material/IconButton';
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
@@ -11,7 +10,7 @@ import RedoOutlinedIcon from '@mui/icons-material/RedoOutlined';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import { addNoteApi } from "../../services/dataService";
 import ColorPopup from "../colorPoppup/colorPopup";
-import { InputBase } from "@mui/material";
+import { Box, InputBase } from "@mui/material";
 import Paper from '@mui/material/Paper';
 import { makeStyles} from "@mui/styles";
 
@@ -26,8 +25,14 @@ const useStyle = makeStyles({
         left: '115px'
        },
        icons:{
-
-       }
+        display:'flex', 
+        marginTop:'-30px',
+        marginLeft:'3px'
+       },
+       ['@media screen and (min-width:421px) and (max-width : 768px)']:{
+        width: '557px',
+        height: '120px'
+      }
 })
 
 function Takenote2(props) {
@@ -64,24 +69,25 @@ function Takenote2(props) {
     const close = () => {
         props.openNote1()
         addNoteApi(inputValues).then((response) =>{
-            console.log(response)
+            console.log(response);
+            props.listenToTakeNoteTwo()
         }).catch((error) => {
             console.log(error)
         })
     }
     return(
         <Paper className={classes.takenote2} elevation={2} style={{backgroundColor:inputValues.color}}>
-            <div>
+            <Box>
             <InputBase type="text" placeholder="Title" name="title" onChange={titleValue}/>
-            </div>
+            </Box>
             <InputBase style={{marginTop:'10px'}}
             type={'text'} name="content" placeholder="Take a note..." onChange={descValue}/>
 
-            <IconButton type="button" sx={{marginTop:'-150px',marginLeft:'505px' }}>
+            <IconButton sx={{marginTop:'-150px',marginLeft:'505px' }}>
                 <PushPinOutlinedIcon />
             </IconButton>
 
-            <div className={classes.icons} style={{display:'flex', marginTop:'-30px',marginLeft:'3px'}}>
+            <Box className={classes.icons}>
             <IconButton>
                 <AddAlertOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>  
@@ -106,10 +112,10 @@ function Takenote2(props) {
             <IconButton>
                 <RedoOutlinedIcon sx={{height:'19px'}}/>
             </IconButton>
-            <IconButton type="button" sx={{marginLeft:'165px',fontSize:16,}} 
+            <IconButton sx={{marginLeft:'165px',fontSize:16,}} 
             onClick={close}
             >Close</IconButton>
-            </div>
+            </Box>
             
         </Paper>
     )

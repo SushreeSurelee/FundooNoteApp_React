@@ -5,12 +5,27 @@ import Button from '@mui/material/Button';
 import { useState } from "react";
 import { signupApi } from "../../services/userService";
 import { useNavigate } from 'react-router-dom';
+import { Box } from "@mui/material";
+import { makeStyles} from "@mui/styles";
 
 const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$/;
 const fnameRegex = /^[A-Z]{1}[a-z]{2,}$/;
 
+const useStyle = makeStyles({
+	container:{
+		height: '90vh',
+  		width: '55vw',
+  		border: '1px solid #dadce0',
+  		borderRadius: '8px',
+  		display: 'flex',
+  		marginLeft: '300px',
+  		marginTop: '30px'
+	}
+})
+
 function Register() {
+	const classes = useStyle()
 	const navigate = useNavigate()
 	const[signupobj,setsignupobj] = useState({firstName:'', lastName:'',service: "advance", email:'', password:''})
 	const [regexobj,setregexobj] = useState({fnameBorder:false,fnameHelper:'',lnameBorder:false,lnameHelper:'',emailBorder:false,emailHelper:'',passwordBorder:false,passwordHelper:''})
@@ -103,15 +118,14 @@ function Register() {
 	}
 
   return(
-	<div className="signuppage">
-<div className="container">
+	<Box className={classes.container}>
 	<div className="left">
 		<img src="../FundooLogo.png" alt="Fundoo"></img>
         <h3>Create your Fundoo Account</h3>
 
 		<TextField  type="text" 
 		sx={{ marginTop:0.7,width: 0.49}} 
-  		InputLabelProps={{style: {fontSize: 13}}} // font size of input label
+  		InputLabelProps={{style: {fontSize: 13}}}
 		label="First Name"
 		variant="outlined" size="small" required 
 		onChange={takeFirstname}
@@ -163,8 +177,7 @@ function Register() {
 		<img src="../Sidelogo.PNG" alt="sidelogo"></img>
 		<p>One account. All of Fundoo working for you.</p>
     </div>
-  </div>
-	</div>
+  	</Box>
   
 )
 }

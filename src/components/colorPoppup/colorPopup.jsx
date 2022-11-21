@@ -20,6 +20,7 @@ export default function ColorPopup(props) {
             }
         addColorApi(colorobj).then((response) => {
             console.log(response)
+            props.updateColor()
         }).catch((error) => {
             console.log(error)
         })

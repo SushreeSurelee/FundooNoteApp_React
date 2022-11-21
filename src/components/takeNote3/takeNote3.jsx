@@ -1,5 +1,4 @@
 import React from "react";
-// import '../takeNote3/takeNote3.css'
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import IconButton from '@mui/material/IconButton';
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
@@ -31,11 +30,18 @@ const useStyle = makeStyles({
         padding: '10px',
         marginLeft: '23px',
         marginTop:'25px',
+    },
+    ['@media screen and (min-width:421px) and (max-width : 768px)']:{
+        display: 'none'
     }
 })
 
 function Takenote3(props) {
     const classes = useStyle()
+
+    const updateColor = () => {
+        props.getNote()
+    }
 
     const updateArchive = (id) => {
         let archiveObj = {noteIdList:[id],isArchived:true} 
@@ -43,6 +49,7 @@ function Takenote3(props) {
 
         addArchiveApi(archiveObj).then((response) =>{
             console.log(response)
+            props.getNote()
         }).catch((error) => {
             console.log(error)
         })
@@ -53,6 +60,7 @@ function Takenote3(props) {
 
         trashNoteApi(trashObj).then((response) => {
             console.log(response)
+            props.getNote()
         }).catch((error) => {
             console.log(error)
         })
@@ -60,6 +68,7 @@ function Takenote3(props) {
 
     const [open, setOpen] = React.useState(false);
     const [updateNote,setUpdateNote] = useState({noteId:'',title:'', description:''})
+
     const handleOpen = (noteobj) => {
         setUpdateNote({
             noteId:noteobj.id,
@@ -94,7 +103,7 @@ function Takenote3(props) {
             <h1 onClick={()=>handleOpen(props.note)} style={{fontSize:'17px'}}>{props.note.title}</h1>
             <p onClick={()=>handleOpen(props.note)}>{props.note.description}</p>
 
-            <div style={{display:'flex', marginLeft:'-10px',marginTop:'1px'}}>
+            <Box style={{display:'flex', marginLeft:'-10px',marginTop:'1px'}}>
             <IconButton>
                 <AddAlertOutlinedIcon sx={{height:'17px'}} />
             </IconButton>
@@ -102,7 +111,7 @@ function Takenote3(props) {
                 <PersonAddAltOutlinedIcon sx={{height:'18px'}} />
             </IconButton>  
             <IconButton>
-                 <ColorPopup action="update" id={props.note.id}/>
+                 <ColorPopup action="update" id={props.note.id} updateColor={updateColor}/>
             </IconButton>
             <IconButton>
                 <DeleteOutlinedIcon sx={{height:'18px'}} onClick={() => trash(props.note.id)}/>
@@ -113,7 +122,7 @@ function Takenote3(props) {
             <IconButton>
                 <MoreVertOutlinedIcon sx={{height:'18px'}}/>
             </IconButton>
-            </div>
+            </Box>
             <Modal
             open={open}
             onClose={handleClose}
@@ -123,7 +132,7 @@ function Takenote3(props) {
                     <InputBase defaultValue={updateNote.title} onChange={takeTitle}/>
                     </div>
                     <InputBase defaultValue={updateNote.description} onChange={takeDescription}/>
-                <div style={{display:'flex',marginTop:'32px'}}>
+                <Box style={{display:'flex',marginTop:'32px'}}>
                     <IconButton>
                       <AddAlertOutlinedIcon sx={{height:'17px'}} />
                     </IconButton>
@@ -145,7 +154,7 @@ function Takenote3(props) {
                     <IconButton type="button" sx={{marginLeft:'200px',fontSize:16,}} 
                     onClick={close}>Close
                     </IconButton>
-                </div>
+                </Box>
                 </Box>
             </Modal>   
         </Card>
