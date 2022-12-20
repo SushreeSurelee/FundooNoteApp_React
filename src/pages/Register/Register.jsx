@@ -108,7 +108,7 @@ function Register() {
 		{
 			signupApi(signupobj).then((response) => {
 				console.log(response)
-				navigate('/dashboard')
+				navigate('/')
 			}).catch((error) => {
 				console.log(error)
 			})

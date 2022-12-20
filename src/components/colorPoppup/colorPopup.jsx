@@ -14,9 +14,12 @@ export default function ColorPopup(props) {
         }
 
         else if(props.action==="update"){
+            console.log("note ID",props.id)
             let colorobj = {
                 noteIdList:[props.id],
                 color:colour
+                // noteId:props.id,
+                // colour:colour
             }
         addColorApi(colorobj).then((response) => {
             console.log(response)

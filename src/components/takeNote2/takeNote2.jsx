@@ -30,8 +30,10 @@ const useStyle = makeStyles({
         marginLeft:'3px'
        },
        ['@media screen and (min-width:421px) and (max-width : 768px)']:{
-        width: '557px',
-        height: '120px'
+        takenote2:{
+        width: '30%',
+        height: '50%'
+        }
       }
 })
 

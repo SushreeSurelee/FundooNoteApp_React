@@ -11,11 +11,11 @@ const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).
 
 function Login() {
     const navigate = useNavigate()
-    const [loginobj,setloginobj] = useState({emailID:'', password:''})
+    const [loginobj,setloginobj] = useState({email:'', password:''})
     const [regexobj,setregexobj] = useState({emailBorder:false,emailHelper:'',passwordBorder:false,passwordHelper:''})
 
     const takeEmail = (e) => {
-        setloginobj(prevstate => ({...prevstate, emailID:e.target.value}));
+        setloginobj(prevstate => ({...prevstate, email:e.target.value}));
         console.log(loginobj);
     }
     const takePass = (e) => { 
@@ -26,7 +26,7 @@ function Login() {
         navigate('/signup')
     }
     const submit = () => {
-        let emailTest = emailRegex.test(loginobj.emailID)
+        let emailTest = emailRegex.test(loginobj.email)
         let passwordTest = passwordRegex.test(loginobj.password)
 
         if(emailTest===false)

@@ -32,8 +32,11 @@ const useStyle = makeStyles({
         marginTop:'25px',
     },
     ['@media screen and (min-width:421px) and (max-width : 768px)']:{
-        display: 'none'
-    }
+        takenote3:{
+        width: '20%',
+        height: '20%'
+        }
+      }
 })
 
 function Takenote3(props) {
@@ -44,7 +47,10 @@ function Takenote3(props) {
     }
 
     const updateArchive = (id) => {
-        let archiveObj = {noteIdList:[id],isArchived:true} 
+        let archiveObj = {
+            noteIdList:[id],isArchived:true
+            // noteId:id
+        } 
         console.log(archiveObj)
 
         addArchiveApi(archiveObj).then((response) =>{
@@ -56,7 +62,13 @@ function Takenote3(props) {
     }
 
     const trash =(id) => {
-        let trashObj = {noteIdList:[id],isDeleted:true}
+        let trashObj = {
+            noteIdList:[id],isDeleted:true
+            //noteIdList:[id],
+            //trash:true
+            // noteId:id
+        }
+        console.log('trashObj',trashObj)
 
         trashNoteApi(trashObj).then((response) => {
             console.log(response)
